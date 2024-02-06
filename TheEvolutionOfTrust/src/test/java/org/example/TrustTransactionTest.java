@@ -1,8 +1,11 @@
 package org.example;
 
+import org.example.players.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
 
 class TrustTransactionTest {
     @Test
@@ -233,4 +236,95 @@ class TrustTransactionTest {
         assertEquals(3,trustTransaction.scoreCard.playerTwoScore());
     }
 
+
+    //detective player
+    @Test
+    public void detectivePlayerFirstMoveWithCooperatePlayer() {
+        Player detectivePlayer = spy(new DetectivePlayer("Chunnu"));
+        Player cooperatePlayer = spy(new CooperatePlayer("munnu"));
+        TrustTransaction transaction = new TrustTransaction(detectivePlayer, cooperatePlayer);
+
+        transaction.transact(1);
+
+        assertNull(transaction.winner());
+        verify(detectivePlayer, times(1)).gain();
+        verify(detectivePlayer, times(1)).invest();
+        verify(cooperatePlayer, times(1)).invest();
+        verify(cooperatePlayer, times(1)).gain();
+    }
+
+    @Test
+    public void detectivePlayerSecondMoveWithCooperatePlayer() {
+        Player detectivePlayer = spy(new DetectivePlayer("Chunnu"));
+        Player cooperatePlayer = spy(new CooperatePlayer("Munnu"));
+        TrustTransaction transaction = new TrustTransaction(detectivePlayer, cooperatePlayer);
+
+        transaction.transact(2);
+
+        assertEquals(detectivePlayer, transaction.winner());
+        verify(detectivePlayer, times(2)).gain();
+        verify(detectivePlayer, times(1)).invest();
+        verify(cooperatePlayer, times(2)).invest();
+        verify(cooperatePlayer, times(1)).gain();
+    }
+
+    @Test
+    public void detectivePlayerTransactionWithCooperatePlayerAndNotGotCheated() {
+        Player detectivePlayer = spy(new DetectivePlayer("Chunnu"));
+        Player cooperatePlayer = spy(new CooperatePlayer("Munnu"));
+        TrustTransaction transaction = new TrustTransaction(detectivePlayer, cooperatePlayer);
+
+        transaction.transact(3);
+
+        assertEquals(detectivePlayer, transaction.winner());
+        verify(detectivePlayer, times(3)).gain();
+        verify(detectivePlayer, times(1)).invest();
+        verify(cooperatePlayer, times(3)).invest();
+        verify(cooperatePlayer, times(1)).gain();
+    }
+
+    @Test
+    public void detectivePlayerFirstMoveWithCheatPlayer() {
+        Player detectivePlayer = spy(new DetectivePlayer("Chunnu"));
+        Player cheatPlayer = spy(new CheatPlayer("Munnu"));
+        TrustTransaction transaction = new TrustTransaction(detectivePlayer, cheatPlayer);
+
+        transaction.transact(1);
+
+        assertEquals(cheatPlayer, transaction.winner());
+        verify(detectivePlayer, times(0)).gain();
+        verify(detectivePlayer, times(1)).invest();
+        verify(cheatPlayer, times(0)).invest();
+        verify(cheatPlayer, times(1)).gain();
+    }
+
+    @Test
+    public void detectivePlayerSecondMoveWithCheatPlayer() {
+        Player detectivePlayer = spy(new DetectivePlayer("Chunnu"));
+        Player cheatPlayer = spy(new CheatPlayer("Munnu"));
+        TrustTransaction transaction = new TrustTransaction(detectivePlayer, cheatPlayer);
+
+        transaction.transact(2);
+
+        assertEquals(cheatPlayer, transaction.winner());
+        verify(detectivePlayer, times(0)).gain();
+        verify(detectivePlayer, times(1)).invest();
+        verify(cheatPlayer, times(0)).invest();
+        verify(cheatPlayer, times(1)).gain();
+    }
+
+    @Test
+    public void detectivePlayerTransactionWithCheatPlayerAndGotCheated() {
+        Player detectivePlayer = spy(new DetectivePlayer("Chunnu"));
+        Player cheatPlayer = spy(new CheatPlayer("Munnu"));
+        TrustTransaction transaction = new TrustTransaction(detectivePlayer, cheatPlayer);
+
+        transaction.transact(3);
+
+        assertEquals(cheatPlayer, transaction.winner());
+        verify(detectivePlayer, times(0)).gain();
+        verify(detectivePlayer, times(1)).invest();
+        verify(cheatPlayer, times(0)).invest();
+        verify(cheatPlayer, times(1)).gain();
+    }
 }

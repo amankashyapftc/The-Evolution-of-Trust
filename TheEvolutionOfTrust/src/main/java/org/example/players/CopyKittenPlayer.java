@@ -1,17 +1,21 @@
-package org.example;
+package org.example.players;
 
-public class CopyCatPlayer implements Player{
-    private boolean isGainedInPreviousRound = false;
+import org.example.Choice;
+import org.example.Player;
+
+public class CopyKittenPlayer implements Player {
+    private boolean isGainedInPreviousRound = true;
+
     private String name;
 
-    public CopyCatPlayer(String name){
+    public CopyKittenPlayer(String name){
         this.name = name;
     }
     @Override
     public Choice playChoice() {
         Choice choice = Choice.CHEAT;
         if (isGainedInPreviousRound) {
-            choice = Choice.COOPERATE;
+            choice = choice.COOPERATE;
         }
         isGainedInPreviousRound = false;
         return choice;

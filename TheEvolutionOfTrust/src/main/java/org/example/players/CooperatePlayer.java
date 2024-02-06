@@ -1,4 +1,7 @@
-package org.example;
+package org.example.players;
+
+import org.example.Choice;
+import org.example.Player;
 
 public class CooperatePlayer implements Player {
 

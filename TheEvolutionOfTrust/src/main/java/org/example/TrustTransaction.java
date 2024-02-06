@@ -31,4 +31,15 @@ public class TrustTransaction {
         }
     }
 
+    public Player winner() {
+        int player1Score = scoreCard.playerOneScore();
+        int player2Score = scoreCard.playerTwoScore();
+        if (player1Score > player2Score) {
+            return playerOne;
+        }
+        else if (player2Score > player1Score) {
+            return playerTwo;
+        }
+        return null;
+    }
 }
