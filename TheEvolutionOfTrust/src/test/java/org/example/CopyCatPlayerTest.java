@@ -8,13 +8,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class CopyCatPlayerTest {
     @Test
     public void testCopyCatFirstChoiceIsCheat() {
-        CopyCatPlayer player = new CopyCatPlayer("Chunnu");
+        CopyCatPlayer player = new CopyCatPlayer();
 
         assertEquals(Choice.CHEAT, player.playChoice());
     }
     @Test
     public void copycatPlayerWhenGainAndMakeMove() {
-        CopyCatPlayer copyCatPlayer = new CopyCatPlayer("Chunnu");
+        CopyCatPlayer copyCatPlayer = new CopyCatPlayer();
 
         copyCatPlayer.gain();
 
@@ -23,7 +23,7 @@ class CopyCatPlayerTest {
 
     @Test
     public void copycatPlayerWhenInvestAndMakeMove() {
-        CopyCatPlayer copyCatPlayer = new CopyCatPlayer("Chunnu");
+        CopyCatPlayer copyCatPlayer = new CopyCatPlayer();
 
         copyCatPlayer.invest();
 
@@ -32,7 +32,7 @@ class CopyCatPlayerTest {
 
     @Test
     public void copycatPlayerWhenInvestAndGainAndMakeMove() {
-        CopyCatPlayer copyCatPlayer = new CopyCatPlayer("Chunnu");
+        CopyCatPlayer copyCatPlayer = new CopyCatPlayer();
 
         copyCatPlayer.gain();
         copyCatPlayer.invest();

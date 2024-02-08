@@ -8,12 +8,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class CooperatePlayerTest {
     @Test
     public void expectsToCreateACooperatePlayer() {
-        assertDoesNotThrow(() -> new CooperatePlayer("Aman"));
+        assertDoesNotThrow(() -> new CooperatePlayer());
     }
 
     @Test
     public void expectsToAlwaysGiveChoiceCheat() {
-        Player player = new CooperatePlayer("Chunnu");
+        Player player = new CooperatePlayer();
         assertEquals(Choice.COOPERATE, player.playChoice());
     }
 }

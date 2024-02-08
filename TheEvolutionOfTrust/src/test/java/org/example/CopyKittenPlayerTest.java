@@ -8,14 +8,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class CopyKittenPlayerTest {
     @Test
     public void testCopyCatFirstChoiceIsCheat() {
-        CopyKittenPlayer player = new CopyKittenPlayer("Chunnu");
+        CopyKittenPlayer player = new CopyKittenPlayer();
 
         assertEquals(Choice.COOPERATE, player.playChoice());
     }
 
     @Test
     public void copyKittenPlayerWhenGainAndMakeMove() {
-        CopyKittenPlayer copyKittenPlayer = new CopyKittenPlayer("Chunnu");
+        CopyKittenPlayer copyKittenPlayer = new CopyKittenPlayer();
 
         copyKittenPlayer.gain();
 
@@ -24,7 +24,7 @@ class CopyKittenPlayerTest {
 
     @Test
     public void copyKittenPlayerWhenGainAndInvestAndMakeMove() {
-        CopyKittenPlayer copyKittenPlayer = new CopyKittenPlayer("Chunnu");
+        CopyKittenPlayer copyKittenPlayer = new CopyKittenPlayer();
 
         copyKittenPlayer.invest();
         copyKittenPlayer.gain();

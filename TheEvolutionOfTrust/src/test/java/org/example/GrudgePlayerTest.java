@@ -9,14 +9,14 @@ class GrudgePlayerTest {
 
     @Test
     public void testGrudgePlayerInitialChoiceMustBeCooperate() {
-        GrudgePlayer player = new GrudgePlayer("Chunnu");
+        GrudgePlayer player = new GrudgePlayer();
 
         assertEquals(Choice.COOPERATE, player.playChoice());
     }
 
     @Test
     public void testWhenGrudgePlayerInvestThenHeWillCheat() {
-        GrudgePlayer grudgePlayer = new GrudgePlayer("Chunnu");
+        GrudgePlayer grudgePlayer = new GrudgePlayer();
 
         grudgePlayer.invest();
 
@@ -25,7 +25,7 @@ class GrudgePlayerTest {
 
     @Test
     public void testWhenGrudgePlayerGainHeWillNeverCheat() {
-        GrudgePlayer grudgePlayer = new GrudgePlayer("Chunnu");
+        GrudgePlayer grudgePlayer = new GrudgePlayer();
 
         grudgePlayer.gain();
 
@@ -34,7 +34,7 @@ class GrudgePlayerTest {
 
     @Test
     public void testGrudgePlayerAlwaysCooperateWhenHwIsGainingWhenHeInvestingThenHeWillCheat() {
-        GrudgePlayer grudgePlayer = new GrudgePlayer("Chunnu");
+        GrudgePlayer grudgePlayer = new GrudgePlayer();
 
         grudgePlayer.gain();
         assertEquals(Choice.COOPERATE, grudgePlayer.playChoice());
@@ -45,7 +45,7 @@ class GrudgePlayerTest {
 
     @Test
     public void testGrudgePlayerWillAlwaysCheatIfHeGotCheatedOnce() {
-        GrudgePlayer grudgePlayer = new GrudgePlayer("Chunnu");
+        GrudgePlayer grudgePlayer = new GrudgePlayer();
 
         assertEquals(Choice.COOPERATE, grudgePlayer.playChoice());
 
@@ -58,7 +58,7 @@ class GrudgePlayerTest {
 
     @Test
     public void testGrudgePlayerAlwaysCooperateIfHeWouldNotGotCheated() {
-        GrudgePlayer grudgePlayer = new GrudgePlayer("Chunnu");
+        GrudgePlayer grudgePlayer = new GrudgePlayer();
 
         grudgePlayer.gain();
         assertEquals(Choice.COOPERATE, grudgePlayer.playChoice());

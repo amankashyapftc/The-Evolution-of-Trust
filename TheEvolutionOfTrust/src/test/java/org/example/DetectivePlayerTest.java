@@ -8,13 +8,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class DetectivePlayerTest {
     @Test
     public void testDetectivePlayerInitialMoveWillBeCooperate() {
-        DetectivePlayer detectivePlayer = new DetectivePlayer("Chunnu");
+        DetectivePlayer detectivePlayer = new DetectivePlayer();
         assertEquals(Choice.COOPERATE, detectivePlayer.playChoice());
     }
 
     @Test
     public void testDetectivePlayerSecondMoveMustBeCheat() {
-        DetectivePlayer detectivePlayer = new DetectivePlayer("Chunnu");
+        DetectivePlayer detectivePlayer = new DetectivePlayer();
 
         assertEquals(Choice.COOPERATE, detectivePlayer.playChoice());
         assertEquals(Choice.CHEAT, detectivePlayer.playChoice());
@@ -22,7 +22,7 @@ class DetectivePlayerTest {
 
     @Test
     public void testAfterGainingDetectivePlayerAlways() {
-        DetectivePlayer detectivePlayer = new DetectivePlayer("Chunnu");
+        DetectivePlayer detectivePlayer = new DetectivePlayer();
 
         detectivePlayer.gain();
         assertEquals(Choice.COOPERATE, detectivePlayer.playChoice());
@@ -36,7 +36,7 @@ class DetectivePlayerTest {
 
     @Test
     public void testAfterTwoMovesGetCheatedAndThanActLikeCopyCat() {
-        DetectivePlayer detectivePlayer = new DetectivePlayer("Chunnu");
+        DetectivePlayer detectivePlayer = new DetectivePlayer();
 
         detectivePlayer.invest();
 

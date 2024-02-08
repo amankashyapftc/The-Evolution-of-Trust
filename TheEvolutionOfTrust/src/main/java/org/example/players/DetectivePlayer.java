@@ -3,17 +3,18 @@ package org.example.players;
 import org.example.Choice;
 import org.example.Player;
 
-public class DetectivePlayer implements Player {
+public class DetectivePlayer extends Player {
 
-    private String name;
     private boolean isInvestedInPreviousRound = false;
     private boolean isGainedInPreviousRound = false;
     private int roundNumber = 0;
     private boolean isCopyCat = false;
 
-    public DetectivePlayer(String name){
-        this.name = name;
+    @Override
+    public Player clone() {
+        return new DetectivePlayer();
     }
+
     @Override
     public Choice playChoice() {
         this.roundNumber++;
@@ -41,6 +42,7 @@ public class DetectivePlayer implements Player {
     @Override
     public void invest() {
         this.isInvestedInPreviousRound = true;
+        super.invest();
     }
 
     @Override
@@ -49,5 +51,6 @@ public class DetectivePlayer implements Player {
         if (this.isInvestedInPreviousRound) {
             this.isInvestedInPreviousRound = false;
         }
+        super.gain();
     }
 }

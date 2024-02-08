@@ -10,16 +10,16 @@ import static org.mockito.Mockito.*;
 class TrustTransactionTest {
     @Test
     public void expectsToCreateTransactionRulesObject(){
-        CooperatePlayer player1 = new CooperatePlayer("Chunnu");
-        CooperatePlayer player2 = new CooperatePlayer("Munnu");
+        CooperatePlayer player1 = new CooperatePlayer();
+        CooperatePlayer player2 = new CooperatePlayer();
         assertDoesNotThrow(() -> new TrustTransaction(player1,player2));
     }
 
     @Test
     public void testIfBothPlayerAreCooperatePlayerThenBothScore2Points(){
 
-        CooperatePlayer player1 = new CooperatePlayer("Chunnu");
-        CooperatePlayer player2 = new CooperatePlayer("Munnu");
+        CooperatePlayer player1 = new CooperatePlayer();
+        CooperatePlayer player2 = new CooperatePlayer();
 
         TrustTransaction trustTransaction = new TrustTransaction(player1,player2);
         trustTransaction.transact(1);
@@ -31,8 +31,8 @@ class TrustTransactionTest {
 
     @Test
     public void testIfBothPlayerAreCheatPlayerThenBothScore0Points(){
-        CheatPlayer player1 = new CheatPlayer("Chunnu");
-        CheatPlayer player2 = new CheatPlayer("Munnu");
+        CheatPlayer player1 = new CheatPlayer();
+        CheatPlayer player2 = new CheatPlayer();
 
         TrustTransaction trustTransaction = new TrustTransaction(player1,player2);
         trustTransaction.transact(1);
@@ -43,8 +43,8 @@ class TrustTransactionTest {
 
     @Test
     public void testIfPlayer1IsCooperatePlayerAndPlayer2IsCheatPlayerThenPlayerOneScoreMinus1AndPlayer2Score3Points(){
-        CooperatePlayer player1 = new CooperatePlayer("Chunnu");
-        CheatPlayer player2 = new CheatPlayer("Munnu");
+        CooperatePlayer player1 = new CooperatePlayer();
+        CheatPlayer player2 = new CheatPlayer();
 
         TrustTransaction trustTransaction = new TrustTransaction(player1,player2);
         trustTransaction.transact(1);
@@ -56,8 +56,8 @@ class TrustTransactionTest {
 
     @Test
     public void testIfPlayer1IsCheatPlayerAndPlayer2IsCooperatePlayerThenPlayer1Score3AndPlayer2ScoreMinus1Points(){
-        CheatPlayer player1 = new CheatPlayer("Chunnu");
-        CooperatePlayer player2 = new CooperatePlayer("Munnu");
+        CheatPlayer player1 = new CheatPlayer();
+        CooperatePlayer player2 = new CooperatePlayer();
 
         TrustTransaction trustTransaction = new TrustTransaction(player1,player2);
         trustTransaction.transact(1);
@@ -69,8 +69,8 @@ class TrustTransactionTest {
 
     @Test
     public void testIfBothPlayerAreCheatPlayerThenBothScore0PointsAfter5Rounds(){
-        CheatPlayer player1 = new CheatPlayer("Chunnu");
-        CheatPlayer player2 = new CheatPlayer("Munnu");
+        CheatPlayer player1 = new CheatPlayer();
+        CheatPlayer player2 = new CheatPlayer();
 
         TrustTransaction trustTransaction = new TrustTransaction(player1,player2);
         trustTransaction.transact(5);
@@ -80,8 +80,8 @@ class TrustTransactionTest {
     }
     @Test
     public void testIfBothPlayerAreCooperatePlayerThenBothScore0PointsAfter5Rounds(){
-        CooperatePlayer player1 = new CooperatePlayer("Chunnu");
-        CooperatePlayer player2 = new CooperatePlayer("Munnu");
+        CooperatePlayer player1 = new CooperatePlayer();
+        CooperatePlayer player2 = new CooperatePlayer();
 
         TrustTransaction trustTransaction = new TrustTransaction(player1,player2);
         trustTransaction.transact(5);
@@ -91,8 +91,8 @@ class TrustTransactionTest {
     }
     @Test
     public void testIfPlayer1IsCooperatePlayerAndPlayer2IsCheatPlayerThenPlayer1ScoreWillBeMinus1AndPlayer2ScoreWillBe15After5Rounds(){
-        CooperatePlayer player1 = new CooperatePlayer("Chunnu");
-        CheatPlayer player2 = new CheatPlayer("Munnu");
+        CooperatePlayer player1 = new CooperatePlayer();
+        CheatPlayer player2 = new CheatPlayer();
 
         TrustTransaction trustTransaction = new TrustTransaction(player1,player2);
         trustTransaction.transact(5);
@@ -105,8 +105,8 @@ class TrustTransactionTest {
     //CopyCat
     @Test
     public void testIfPlayer1IsACopyCatPlayerAndPlayer2IsCooperatePlayerAfter1RoundPlayer1HasScore3AndPlayer2HasMinus1Score(){
-        CopyCatPlayer player1 = new CopyCatPlayer("Chunnu");
-        CooperatePlayer player2 = new CooperatePlayer("Munnu");
+        CopyCatPlayer player1 = new CopyCatPlayer();
+        CooperatePlayer player2 = new CooperatePlayer();
 
         TrustTransaction trustTransaction = new TrustTransaction(player1,player2);
         trustTransaction.transact(1);
@@ -117,8 +117,8 @@ class TrustTransactionTest {
 
     @Test
     public void testIfPlayer1IsACopyCatPlayerAndPlayer2IsCooperatePlayerAfter2RoundPlayer1HasScore5AndPlayer2Has1Score(){
-        CopyCatPlayer player1 = new CopyCatPlayer("Chunnu");
-        CooperatePlayer player2 = new CooperatePlayer("Munnu");
+        CopyCatPlayer player1 = new CopyCatPlayer();
+        CooperatePlayer player2 = new CooperatePlayer();
 
         TrustTransaction trustTransaction = new TrustTransaction(player1,player2);
         trustTransaction.transact(2);
@@ -128,8 +128,8 @@ class TrustTransactionTest {
     }
     @Test
     public void testIfPlayer1IsACopyCatPlayerAndPlayer2IsCooperatePlayerAfter3RoundPlayer1HasScore7AndPlayer2Has3Score(){
-        CopyCatPlayer player1 = new CopyCatPlayer("Chunnu");
-        CooperatePlayer player2 = new CooperatePlayer("Munnu");
+        CopyCatPlayer player1 = new CopyCatPlayer();
+        CooperatePlayer player2 = new CooperatePlayer();
 
         TrustTransaction trustTransaction = new TrustTransaction(player1,player2);
         trustTransaction.transact(3);
@@ -143,8 +143,8 @@ class TrustTransactionTest {
     //CopyKitten
     @Test
     public void testIfPlayer1IsACopyKittenPlayerAndPlayer2IsCooperatePlayerAfter1RoundPlayer1HasScore2AndPlayer2Has2Score(){
-        CopyKittenPlayer player1 = new CopyKittenPlayer("Chunnu");
-        CooperatePlayer player2 = new CooperatePlayer("Munnu");
+        CopyKittenPlayer player1 = new CopyKittenPlayer();
+        CooperatePlayer player2 = new CooperatePlayer();
 
         TrustTransaction trustTransaction = new TrustTransaction(player1,player2);
         trustTransaction.transact(1);
@@ -155,8 +155,8 @@ class TrustTransactionTest {
 
     @Test
     public void testIfPlayer1IsACopyKittenPlayerAndPlayer2IsCooperatePlayerAfter2RoundPlayer1HasScore4AndPlayer2Has4Score(){
-        CopyKittenPlayer player1 = new CopyKittenPlayer("Chunnu");
-        CooperatePlayer player2 = new CooperatePlayer("Munnu");
+        CopyKittenPlayer player1 = new CopyKittenPlayer();
+        CooperatePlayer player2 = new CooperatePlayer();
 
         TrustTransaction trustTransaction = new TrustTransaction(player1,player2);
         trustTransaction.transact(2);
@@ -166,8 +166,8 @@ class TrustTransactionTest {
     }
     @Test
     public void testIfPlayer1IsACopyKittenPlayerAndPlayer2IsCooperatePlayerAfter3RoundPlayer1HasScore6AndPlayer2Has6Score(){
-        CopyKittenPlayer player1 = new CopyKittenPlayer("Chunnu");
-        CooperatePlayer player2 = new CooperatePlayer("Munnu");
+        CopyKittenPlayer player1 = new CopyKittenPlayer();
+        CooperatePlayer player2 = new CooperatePlayer();
 
         TrustTransaction trustTransaction = new TrustTransaction(player1,player2);
         trustTransaction.transact(3);
@@ -177,8 +177,8 @@ class TrustTransactionTest {
     }
     @Test
     public void testIfPlayer1IsACopyKittenPlayerAndPlayer2IsCheatPlayerAfter1RoundPlayer1HasScoreMinus1AndPlayer2Has3Score(){
-        CopyKittenPlayer player1 = new CopyKittenPlayer("Chunnu");
-        CheatPlayer player2 = new CheatPlayer("Munnu");
+        CopyKittenPlayer player1 = new CopyKittenPlayer();
+        CheatPlayer player2 = new CheatPlayer();
 
         TrustTransaction trustTransaction = new TrustTransaction(player1,player2);
         trustTransaction.transact(1);
@@ -188,8 +188,8 @@ class TrustTransactionTest {
     }
     @Test
     public void testIfPlayer1IsACopyKittenPlayerAndPlayer2IsCheatPlayerAfter2RoundPlayer1HasScoreMinus1AndPlayer2Has3Score(){
-        CopyKittenPlayer player1 = new CopyKittenPlayer("Chunnu");
-        CheatPlayer player2 = new CheatPlayer("Munnu");
+        CopyKittenPlayer player1 = new CopyKittenPlayer();
+        CheatPlayer player2 = new CheatPlayer();
 
         TrustTransaction trustTransaction = new TrustTransaction(player1,player2);
         trustTransaction.transact(2);
@@ -200,8 +200,8 @@ class TrustTransactionTest {
 
     @Test
     public void testIfPlayer1IsACopyKittenPlayerAndPlayer2IsCheatPlayerAfter3RoundPlayer1HasScoreMinus1AndPlayer2Has3Score(){
-        CopyKittenPlayer player1 = new CopyKittenPlayer("Chunnu");
-        CheatPlayer player2 = new CheatPlayer("Munnu");
+        CopyKittenPlayer player1 = new CopyKittenPlayer();
+        CheatPlayer player2 = new CheatPlayer();
 
         TrustTransaction trustTransaction = new TrustTransaction(player1,player2);
         trustTransaction.transact(3);
@@ -215,8 +215,8 @@ class TrustTransactionTest {
     //GrudgePlayer
     @Test
     public void testIfPlayer1IsGrudgePlayerAndPlayer2IsCooperatePlayerAfter3RoundPlayer1HasScore6AndPlayer2Has6Score(){
-        GrudgePlayer player1 = new GrudgePlayer("Chunnu");
-        CooperatePlayer player2 = new CooperatePlayer("Munnu");
+        GrudgePlayer player1 = new GrudgePlayer();
+        CooperatePlayer player2 = new CooperatePlayer();
 
         TrustTransaction trustTransaction = new TrustTransaction(player1,player2);
         trustTransaction.transact(3);
@@ -226,8 +226,8 @@ class TrustTransactionTest {
     }
     @Test
     public void testIfPlayer1IsGrudgePlayerAndPlayer2IsCheatPlayerAfter3RoundPlayer1HasScore6AndPlayer2Has6Score(){
-        GrudgePlayer player1 = new GrudgePlayer("Chunnu");
-        CheatPlayer player2 = new CheatPlayer("Munnu");
+        GrudgePlayer player1 = new GrudgePlayer();
+        CheatPlayer player2 = new CheatPlayer();
 
         TrustTransaction trustTransaction = new TrustTransaction(player1,player2);
         trustTransaction.transact(3);
@@ -239,9 +239,9 @@ class TrustTransactionTest {
 
     //detective player
     @Test
-    public void detectivePlayerFirstMoveWithCooperatePlayer() {
-        Player detectivePlayer = spy(new DetectivePlayer("Chunnu"));
-        Player cooperatePlayer = spy(new CooperatePlayer("munnu"));
+    public void testDetectivePlayerFirstMoveWithCooperatePlayer() {
+        Player detectivePlayer = spy(new DetectivePlayer());
+        Player cooperatePlayer = spy(new CooperatePlayer());
         TrustTransaction transaction = new TrustTransaction(detectivePlayer, cooperatePlayer);
 
         transaction.transact(1);
@@ -254,9 +254,9 @@ class TrustTransactionTest {
     }
 
     @Test
-    public void detectivePlayerSecondMoveWithCooperatePlayer() {
-        Player detectivePlayer = spy(new DetectivePlayer("Chunnu"));
-        Player cooperatePlayer = spy(new CooperatePlayer("Munnu"));
+    public void testDetectivePlayerSecondMoveWithCooperatePlayer() {
+        Player detectivePlayer = spy(new DetectivePlayer());
+        Player cooperatePlayer = spy(new CooperatePlayer());
         TrustTransaction transaction = new TrustTransaction(detectivePlayer, cooperatePlayer);
 
         transaction.transact(2);
@@ -269,9 +269,9 @@ class TrustTransactionTest {
     }
 
     @Test
-    public void detectivePlayerTransactionWithCooperatePlayerAndNotGotCheated() {
-        Player detectivePlayer = spy(new DetectivePlayer("Chunnu"));
-        Player cooperatePlayer = spy(new CooperatePlayer("Munnu"));
+    public void testDetectivePlayerTransactionWithCooperatePlayerAndNotGotCheated() {
+        Player detectivePlayer = spy(new DetectivePlayer());
+        Player cooperatePlayer = spy(new CooperatePlayer());
         TrustTransaction transaction = new TrustTransaction(detectivePlayer, cooperatePlayer);
 
         transaction.transact(3);
@@ -284,9 +284,9 @@ class TrustTransactionTest {
     }
 
     @Test
-    public void detectivePlayerFirstMoveWithCheatPlayer() {
-        Player detectivePlayer = spy(new DetectivePlayer("Chunnu"));
-        Player cheatPlayer = spy(new CheatPlayer("Munnu"));
+    public void testDetectivePlayerFirstMoveWithCheatPlayer() {
+        Player detectivePlayer = spy(new DetectivePlayer());
+        Player cheatPlayer = spy(new CheatPlayer());
         TrustTransaction transaction = new TrustTransaction(detectivePlayer, cheatPlayer);
 
         transaction.transact(1);
@@ -299,9 +299,9 @@ class TrustTransactionTest {
     }
 
     @Test
-    public void detectivePlayerSecondMoveWithCheatPlayer() {
-        Player detectivePlayer = spy(new DetectivePlayer("Chunnu"));
-        Player cheatPlayer = spy(new CheatPlayer("Munnu"));
+    public void testDetectivePlayerSecondMoveWithCheatPlayer() {
+        Player detectivePlayer = spy(new DetectivePlayer());
+        Player cheatPlayer = spy(new CheatPlayer());
         TrustTransaction transaction = new TrustTransaction(detectivePlayer, cheatPlayer);
 
         transaction.transact(2);
@@ -314,9 +314,9 @@ class TrustTransactionTest {
     }
 
     @Test
-    public void detectivePlayerTransactionWithCheatPlayerAndGotCheated() {
-        Player detectivePlayer = spy(new DetectivePlayer("Chunnu"));
-        Player cheatPlayer = spy(new CheatPlayer("Munnu"));
+    public void testDetectivePlayerTransactionWithCheatPlayerAndGotCheated() {
+        Player detectivePlayer = spy(new DetectivePlayer());
+        Player cheatPlayer = spy(new CheatPlayer());
         TrustTransaction transaction = new TrustTransaction(detectivePlayer, cheatPlayer);
 
         transaction.transact(3);
